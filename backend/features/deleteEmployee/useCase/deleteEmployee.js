@@ -1,15 +1,10 @@
 import employeeRepository from "../../../repositories/employeeRepository.js";
 
-async function getEmployeeByID(id) {
+async function deleteEmployee(id) {
   try {
-    const employee = await employeeRepository.findByID(id);
-
-    // Valida se retornou algum dado
-    if (!employee) {
-      return null;
-    }
-
-    return employee;
+      const employee = await employeeRepository.remove(id);
+      
+    return "Usuario deletado com sucesso"
   } catch (error) {
     console.error(
       "Ocorreu o seguinte erro no caso de uso ao trazer dados de funcionários:",
@@ -19,4 +14,4 @@ async function getEmployeeByID(id) {
   }
 }
 
-export default getEmployeeByID;
+export default deleteEmployee;

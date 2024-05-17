@@ -8,6 +8,10 @@ async function findByID(id) {
   return await Employee.findById(id);
 }
 
+async function remove(id) {
+  return await Employee.deleteOne({ _id: id });
+}
+
 
 async function create(employeeData) {
   const newEmployee = new Employee({
@@ -23,4 +27,5 @@ export default {
   findAll,
   create,
   findByID,
+  remove,
 };

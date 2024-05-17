@@ -1,6 +1,5 @@
 import { connect } from "mongoose";
 
-
 // Conexão com MongoDB
 const connectDB = async () => {
   try {
@@ -12,6 +11,5 @@ const connectDB = async () => {
     console.error("Erro ao conectar ao MongoDB:", err);
   }
 };
-
 
 export default connectDB;

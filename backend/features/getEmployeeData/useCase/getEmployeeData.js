@@ -15,7 +15,7 @@ async function getEmployees() {
       "Ocorreu o seguinte erro no caso de uso ao trazer dados de funcionários:",
       error
     );
-    throw error;
+    throw errorEnum.unknowError;
   }
 }
 

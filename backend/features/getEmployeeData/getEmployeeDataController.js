@@ -1,6 +1,6 @@
 import getEmployees from "./useCase/getEmployeeData.js";
 
-const getEmployeesData = async (req, res) => {
+const getEmployeesController = async (req, res) => {
   try {
     const employees = await getEmployees();
     res.json(employees);
@@ -9,4 +9,4 @@ const getEmployeesData = async (req, res) => {
   }
 }
 
-export default getEmployeesData;
+export default getEmployeesController;

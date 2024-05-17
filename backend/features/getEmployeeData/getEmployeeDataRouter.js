@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
-import getEmployeesData from "./getEmployeeDataController.js";
+import getEmployeesController from "./getEmployeeDataController.js";
 
-router.get("/", getEmployeesData);
+router.get("/", getEmployeesController);
 
 export default router;

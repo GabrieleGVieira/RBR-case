@@ -10,9 +10,4 @@ connectDB()
 app.use(express.json());
 app.use(routes);
 
-
-// app.listen(port, () => {
-//   console.log(`Servidor Express rodando em http://localhost:${port}`);
-// });
-
 export default app;

@@ -3,9 +3,9 @@ import createEmployee from "./useCase/createEmployee.js";
 const createEmployeeController = async (req, res) => {
   try {
     const employees = await createEmployee(req.body);
-    res.json(employees);
+    res.status(201).json(employees);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(400).json({ error: err.message });
   }
 };
 

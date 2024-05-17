@@ -3,10 +3,10 @@ import getEmployees from "./useCase/getEmployeeData.js";
 const getEmployeesController = async (req, res) => {
   try {
     const employees = await getEmployees();
-    res.json(employees);
+    res.status(200).json(employees);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(400).json({ error: err.message });
   }
-}
+};
 
 export default getEmployeesController;

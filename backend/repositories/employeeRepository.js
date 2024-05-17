@@ -1,7 +1,7 @@
 import Employee from "../mongodb/models/employee.js";
 
-async function findAll() {
-  return await Employee.find();
+async function findAll(filter) {
+  return await Employee.find(filter);
 }
 
 async function findByID(id) {

@@ -1,8 +1,8 @@
 import employeeRepository from "../../../repositories/employeeRepository.js";
 
-async function getEmployees() {
+async function getEmployees(filter) {
   try {
-    const employees = await employeeRepository.findAll();
+    const employees = await employeeRepository.findAll(filter);
 
     // Valida se retornou algum dado
     if (!employees?.length) {

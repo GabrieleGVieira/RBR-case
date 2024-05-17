@@ -4,6 +4,11 @@ async function findAll() {
   return await Employee.find();
 }
 
+async function findByID(id) {
+  return await Employee.findById(id);
+}
+
+
 async function create(employeeData) {
   const newEmployee = new Employee({
     name: employeeData.name,
@@ -17,4 +22,5 @@ async function create(employeeData) {
 export default {
   findAll,
   create,
+  findByID,
 };

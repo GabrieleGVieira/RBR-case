@@ -2,9 +2,9 @@ import employeeRepository from "../../../repositories/employeeRepository.js";
 
 async function deleteEmployee(id) {
   try {
-      const employee = await employeeRepository.remove(id);
-      
-    return "Usuario deletado com sucesso"
+    await employeeRepository.remove(id);
+
+    return "Usuario deletado com sucesso";
   } catch (error) {
     console.error(
       "Ocorreu o seguinte erro no caso de uso ao trazer dados de funcionários:",

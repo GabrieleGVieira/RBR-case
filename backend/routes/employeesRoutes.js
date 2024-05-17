@@ -5,6 +5,7 @@ import getEmployeesRouter from "../features/getEmployeeData/getEmployeeDataRoute
 import createEmployee from "../features/createEmployee/createEmployeeRouter.js"
 import getEmployeeByID from "../features/getEmployeeByID/getEmployeeByIDRouter.js";
 import deleteEmployee from "../features/deleteEmployee/deleteEmployeeRouter.js";
+import updateEmployee from "../features/updateEmployee/updateEmployeeRouter.js";
 
 router.use("/employees", getEmployeesRouter);
 
@@ -14,4 +15,5 @@ router.use("/employees", getEmployeeByID);
 
 router.use("/employees", deleteEmployee);
 
+router.use("/employees", updateEmployee);
 export default router;

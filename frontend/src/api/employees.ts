@@ -3,8 +3,9 @@ import corsMiddleware from "./cors";
 
 export default async function getEmployees(filter: {}) {
   try {
+    console.log(filter)
     const response = await axios.get("http://localhost:3000/api/employees", filter);
-    console.log(response)
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching employees:", error);

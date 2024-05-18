@@ -1,3 +1,4 @@
+import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Table,
   Thead,
@@ -13,6 +14,7 @@ import {
   MenuList,
   MenuItem
 } from "@chakra-ui/react";
+import { IconButton } from "@chakra-ui/react";
 
 interface TableRow {
   id: number;
@@ -34,6 +36,7 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
             <Th>Name</Th>
             <Th>Cargo</Th>
             <Th>Departamento</Th>
+            <Th> Ações</Th>
           </Tr>
         </Thead>
         {data.length > 0 ? (
@@ -45,12 +48,19 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
                 <Td>{row.department}</Td>
                 <Td>
                   <Menu>
-                    <MenuButton as={Button}>
-                      Ações
-                    </MenuButton>
+                    <MenuButton
+                      as={IconButton}
+                      aria-label="Options"
+                      icon={<HamburgerIcon />}
+                      variant="outline"
+                    />
                     <MenuList>
-                      <MenuItem>Editar</MenuItem>
-                      <MenuItem>Deletar</MenuItem>
+                      <MenuItem onClick={() => alert("Kagebunshin")}>
+                        Editar
+                      </MenuItem>
+                      <MenuItem onClick={() => alert("Kagebunshin")}>
+                        Deletar
+                      </MenuItem>
                     </MenuList>
                   </Menu>
                 </Td>

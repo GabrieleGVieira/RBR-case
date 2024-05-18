@@ -30,3 +30,13 @@ export async function updateEmployee(id: string, updateData: {}) {
     throw error.response.data.error;
   }
 }
+
+
+export async function createEmployee(newEmployee: {}) {
+  try {
+    await axios.post("http://localhost:3000/api/employees/", newEmployee);
+  } catch (error: any) {
+    console.error("Error while create employee:", error.response.data);
+    throw error.response.data.error;
+  }
+}

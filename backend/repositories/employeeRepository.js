@@ -17,6 +17,7 @@ async function create(employeeData) {
     name: employeeData.name,
     jobTitle: employeeData.jobTitle,
     department: employeeData.department,
+    dtAdmission: employeeData.dtAdmission,
   });
 
   return await newEmployee.save();

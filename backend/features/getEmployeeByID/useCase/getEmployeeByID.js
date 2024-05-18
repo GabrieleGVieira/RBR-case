@@ -1,10 +1,9 @@
 import employeeRepository from "../../../repositories/employeeRepository.js";
+import errorEnum from "../../../entities/errorEnum.js";
 
 async function getEmployeeByID(id) {
   try {
     const employee = await employeeRepository.findByID(id);
-
-    console.log(employee);
 
     // Valida se retornou algum dado
     if (!employee) {
@@ -14,10 +13,10 @@ async function getEmployeeByID(id) {
     return employee;
   } catch (error) {
     console.error(
-      "Ocorreu o seguinte erro no caso de uso ao trazer dados de funcionários:",
+      "Ocorreu o seguinte erro no caso de uso ao trazer dados de um funcionário:",
       error
     );
-    throw error;
+    throw errorEnum.unknowError;
   }
 }
 

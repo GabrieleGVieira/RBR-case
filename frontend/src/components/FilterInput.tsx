@@ -22,7 +22,6 @@ const FilterInput: React.FC = () => {
     { label: "Departamento", value: "department" },
   ];
 
-
   // constantes para armazenar filtros
 
   const [selectedFilter, setSelectedFilter] = useState<string>("name");
@@ -32,7 +31,7 @@ const FilterInput: React.FC = () => {
   const dispatch = useDispatch();
 
   const getEmployeesData = async () => {
-    const filter = { [selectedFilter]: searchText };
+    const filter = searchText ? { [selectedFilter]: searchText } : {};
     const data = await getEmployees(filter);
     if (data) {
       console.log(data);
@@ -42,7 +41,7 @@ const FilterInput: React.FC = () => {
 
   useEffect(() => {
     getEmployeesData();
-  }, [dispatch, selectedFilter, searchText]);
+  }, []);
 
   // Mudar tipo de filtro
   const handleMenuItemClick = (filter: string) => {

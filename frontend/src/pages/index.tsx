@@ -1,7 +1,16 @@
 // pages/index.tsx
 
-import { Box, Input, InputGroup, InputLeftAddon, Menu, MenuButton, Stack, Text } from "@chakra-ui/react";
-import EmployeeTable from "../components/Table"
+import {
+  Box,
+  Input,
+  InputGroup,
+  InputLeftAddon,
+  Menu,
+  MenuButton,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import EmployeeTable from "../components/Table";
 import { useEffect, useState } from "react";
 import getEmployees from "../api/employees";
 import FilterInput from "@/components/FilterInput";
@@ -15,12 +24,12 @@ const data = [
 ];
 
 const Home: React.FC = () => {
-    const dispatch = useDispatch();
-    const employees_data = useSelector((state: any) => state.employees);
+  const dispatch = useDispatch();
+  const employees_data = useSelector((state: any) => state.employees);
 
   useEffect(() => {
     const getEmployeesData = async () => {
-      const filter = {}
+      const filter = {};
       const data = await getEmployees(filter);
       if (data) {
         dispatch(setEmployees(data));

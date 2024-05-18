@@ -15,11 +15,12 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
-import { deleteEmployee, getEmployees } from "../api/employees";
+import { deleteEmployee, getEmployees, updateEmployee } from "../api/employees";
 import { useEffect, useState } from "react";
 import { setEmployees } from "@/redux/actions";
 import ErrorAlertModal from "./ErrorAlertModal";
 import { useDispatch } from "react-redux";
+import UpdateModal from "./UpdateModal";
 
 interface TableRow {
   _id: string;
@@ -33,10 +34,28 @@ interface SimpleTableProps {
 }
 
 const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+
   const toast = useToast();
   const dispatch = useDispatch();
+
+  // config update Modal
+
+    const [isUpdateModalOpen, setOpenUpdateModal] = useState(false);
+   const [idForUpdate, setIdForUpdate] = useState("");
+
+
+  // config Alert Modal
+  const [isOpen, setIsOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // update function
+
+  function updateEmployee(id: string) {
+    setOpenUpdateModal(true)
+    setIdForUpdate(id)
+  }
+
+  // delete function 
 
   const deleteEmployeeData = async (id: string) => {
     try {
@@ -89,7 +108,7 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
                       variant="outline"
                     />
                     <MenuList>
-                      <MenuItem onClick={() => alert("Kagebunshin")}>
+                      <MenuItem onClick={() => updateEmployee(row._id)}>
                         Editar
                       </MenuItem>
                       <MenuItem onClick={() => deleteEmployeeData(row._id)}>
@@ -105,12 +124,20 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
           <Text>No data available</Text>
         )}
       </Table>
-      <ErrorAlertModal requestOpen={isOpen} message={errorMessage} />
+      {isOpen && (
+        <ErrorAlertModal
+          onCloseModal={() => setIsOpen(false)}
+          message={errorMessage}
+        />
+      )}
+      {isUpdateModalOpen && (
+        <UpdateModal
+          id={idForUpdate}
+          onCloseModal={() => setOpenUpdateModal(false)}
+        />
+      )}
     </Box>
   );
 };
 
 export default EmployeeTable;
-function dispatch(arg0: { type: string; payload: any[] }) {
-  throw new Error("Function not implemented.");
-}

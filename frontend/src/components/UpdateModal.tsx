@@ -134,7 +134,7 @@ const UpdateModal: React.FC<ModalParams> = ({id, onCloseModal}) => {
           <ModalBody>
             <FormControl isInvalid={isErrorName}>
               <FormLabel>Nome</FormLabel>
-              <Input type="name" value={name} onChange={handleNameChange} />
+              <Input value={name} onChange={handleNameChange} />
               {isErrorName && (
                 <FormErrorMessage>Nome inválido</FormErrorMessage>
               )}
@@ -142,7 +142,6 @@ const UpdateModal: React.FC<ModalParams> = ({id, onCloseModal}) => {
             <FormControl isInvalid={isErrorJobTitle}>
               <FormLabel>Cargo</FormLabel>
               <Input
-                type="jobTitle"
                 value={jobTitle}
                 onChange={handleJobTitleChange}
               />
@@ -153,7 +152,6 @@ const UpdateModal: React.FC<ModalParams> = ({id, onCloseModal}) => {
             <FormControl isInvalid={isErrorDepartment}>
               <FormLabel>Departamento</FormLabel>
               <Input
-                type="jobTitle"
                 value={department}
                 onChange={handleDepartmentChange}
               />

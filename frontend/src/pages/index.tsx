@@ -1,4 +1,3 @@
-// pages/index.tsx
 
 import {
   Box,

@@ -1,4 +1,3 @@
-// pages/_app.js
 import { FilterProvider } from "@/context/FilterContext";
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";

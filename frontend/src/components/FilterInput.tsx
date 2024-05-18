@@ -38,10 +38,6 @@ const FilterInput: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    getEmployeesData();
-  }, []);
-
   // Mudar tipo de filtro
   const handleMenuItemClick = (filter: string) => {
     setSelectedFilter(filter);

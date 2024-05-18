@@ -137,10 +137,10 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
         >
           <AlertIcon boxSize="40px" mr={0} />
           <AlertTitle mt={4} mb={1} fontSize="lg">
-            Não há informações
+            Não Há Informações
           </AlertTitle>
           <AlertDescription maxWidth="sm">
-            Ainda não existe nenum funcionário cadastrado. Crique no botão
+            Ainda não existe nenhum funcionário cadastrado. Crique no botão
             `Adicionar Funcionário` e inicie um novo cadastro.
           </AlertDescription>
         </Alert>

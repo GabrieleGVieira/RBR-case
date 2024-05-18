@@ -1,18 +1,17 @@
-// pages/_app.js
 import { ChakraProvider } from "@chakra-ui/react";
-import { extendTheme } from "@chakra-ui/react";
 import { Provider } from "react-redux";
-import store from "../redux/store";
+import store from "@/redux/store";
 
-// Define seu tema personalizado, se necessário
-const theme = extendTheme({
-  // Defina suas configurações de tema aqui
-});
-
-function MyApp({ Component, pageProps }) {
+function MyApp({
+  Component,
+  pageProps,
+}: {
+  Component: React.FC<any>;
+  pageProps: any;
+}) {
   return (
     <Provider store={store}>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider>
         <Component {...pageProps} />
       </ChakraProvider>
     </Provider>

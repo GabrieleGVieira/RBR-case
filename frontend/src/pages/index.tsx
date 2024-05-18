@@ -1,19 +1,9 @@
-// pages/index.tsx
-
 import {
   Box,
   Button,
   Container,
   Grid,
   GridItem,
-  Input,
-  InputGroup,
-  InputLeftAddon,
-  Menu,
-  MenuButton,
-  SimpleGrid,
-  Stack,
-  StackDivider,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -21,8 +11,7 @@ import EmployeeTable from "../components/Table";
 import { useEffect, useState } from "react";
 import { getEmployees } from "../api/employees";
 import FilterInput from "@/components/FilterInput";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import store from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
 import { setEmployees } from "@/redux/actions";
 import CreateModal from "@/components/CreateModal";
 
@@ -46,15 +35,15 @@ const Home: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <VStack
-      divider={<StackDivider borderColor="gray.200" />}
-      spacing={5}
-      align="stretch"
-    >
-      <Container maxW="100%" bg="gray.600" color="white">
-        <Box h="50px">Funcionarios</Box>
+    <VStack spacing={10} align="stretch">
+      <Container maxW="100%" color="#dde3eb" bg="#041e49">
+        <Box h="50px" textAlign="center">
+          <Text fontSize="2xl" as="b">
+            Controle de Funcionários
+          </Text>
+        </Box>
       </Container>
-      <Container maxW="90%">
+      <Container maxW="90%" color="#171113">
         <Box h="40px">
           <Grid templateColumns="repeat(3, 1fr)" gap={4}>
             <GridItem colSpan={2} h="10">
@@ -66,7 +55,7 @@ const Home: React.FC = () => {
           </Grid>
         </Box>
       </Container>
-      <Container maxW="90%">
+      <Container maxW="90%" color="#171113">
         <Box h="40px">
           <EmployeeTable data={employees_data.employees} />
         </Box>

@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
 import { deleteEmployee, getEmployees } from "../api/employees";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { setEmployees } from "@/redux/actions";
 import ErrorAlertModal from "./ErrorAlertModal";
 import { useDispatch } from "react-redux";
@@ -85,13 +85,13 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
   return (
     <Box>
       <Table variant="simple">
-        <Thead>
+        <Thead bg="#041e49">
           <Tr>
-            <Th>Name</Th>
-            <Th>Cargo</Th>
-            <Th>Departamento</Th>
-            <Th>Data de Admissão</Th>
-            <Th> Ações</Th>
+            <Th color="#dde3eb">Name</Th>
+            <Th color="#dde3eb">Cargo</Th>
+            <Th color="#dde3eb">Departamento</Th>
+            <Th color="#dde3eb">Data de Admissão</Th>
+            <Th color="#dde3eb"> Ações</Th>
           </Tr>
         </Thead>
         {data.length > 0 ? (

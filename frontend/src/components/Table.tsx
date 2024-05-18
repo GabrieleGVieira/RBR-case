@@ -15,7 +15,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
-import { deleteEmployee, getEmployees, updateEmployee } from "../api/employees";
+import { deleteEmployee, getEmployees } from "../api/employees";
 import { useEffect, useState } from "react";
 import { setEmployees } from "@/redux/actions";
 import ErrorAlertModal from "./ErrorAlertModal";
@@ -27,6 +27,7 @@ interface TableRow {
   name: string;
   jobTitle: string;
   department: string;
+  dtAdmission: string;
 }
 
 interface SimpleTableProps {
@@ -89,6 +90,7 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
             <Th>Name</Th>
             <Th>Cargo</Th>
             <Th>Departamento</Th>
+            <Th>Data de Admissão</Th>
             <Th> Ações</Th>
           </Tr>
         </Thead>
@@ -99,6 +101,7 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
                 <Td>{row.name}</Td>
                 <Td>{row.jobTitle}</Td>
                 <Td>{row.department}</Td>
+                <Td>{row.dtAdmission}</Td>
                 <Td>
                   <Menu>
                     <MenuButton

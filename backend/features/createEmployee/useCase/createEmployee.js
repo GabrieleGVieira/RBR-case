@@ -7,7 +7,8 @@ async function createEmployees(employeeData) {
     if (
       !employeeData.name ||
       !employeeData.jobTitle ||
-      !employeeData.department
+      !employeeData.department ||
+      !employeeData.dtAdmission
     ) {
       throw errorEnum.emptyField;
     }

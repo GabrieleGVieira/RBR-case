@@ -15,6 +15,10 @@ const employeeSchema = new Schema({
     type: String,
     required: true,
   },
+  dtAdmission: {
+    type: String,
+    required: true,
+  },
 });
 
 const Employee = mongoose.model("Employee", employeeSchema, "employee");

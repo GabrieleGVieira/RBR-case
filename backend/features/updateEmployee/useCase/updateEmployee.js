@@ -4,19 +4,9 @@ import errorEnum from "../../../entities/errorEnum.js";
 async function updateEmployee(id, dataForUpdate) {
   try {
     // Validando para caso nao venha nehum campo para edição
-    if (!dataForUpdate) {
+    if (Object.keys(dataForUpdate).length === 0) {
       throw errorEnum.emptyField;
     }
- 
-    // validação se tem caracters inválidos
-
-    // const invalidCharactersRegex = /[^a-zA-Z\u00C0-\u017F\s_]/g; // permite minusculas e maiusculas, acentos, letra "ç" e espaços
-    // const hasInvalidCharactersName = invalidCharactersRegex.test(
-    //   dataForUpdate.name
-    // );
-    // if (hasInvalidCharactersName) {
-    //   throw new Error(errorEnum.invalidName);
-    // }
 
     await employeeRepository.update(id, dataForUpdate);
   } catch (error) {

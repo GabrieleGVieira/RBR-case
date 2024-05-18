@@ -10,7 +10,7 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import getEmployees from "@/api/employees";
+import { getEmployees } from "@/api/employees";
 import { useDispatch } from "react-redux";
 import { setEmployees } from "@/redux/actions";
 

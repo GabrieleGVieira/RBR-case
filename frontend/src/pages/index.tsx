@@ -4,6 +4,8 @@ import {
   Container,
   Grid,
   GridItem,
+  Icon,
+  IconButton,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -14,6 +16,7 @@ import FilterInput from "@/components/FilterInput";
 import { useDispatch, useSelector } from "react-redux";
 import { setEmployees } from "@/redux/actions";
 import CreateModal from "@/components/CreateModal";
+import { AddIcon } from "@chakra-ui/icons";
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -50,7 +53,9 @@ const Home: React.FC = () => {
               <FilterInput />
             </GridItem>
             <GridItem colStart={4} colEnd={6} h="10">
-              <Button onClick={() => setIsOpen(true)}>Adicionar Usuario</Button>
+              <Button leftIcon={<AddIcon />} onClick={() => setIsOpen(true)}>
+                Adicionar Funcionário
+              </Button>
             </GridItem>
           </Grid>
         </Box>

@@ -13,6 +13,10 @@ import {
   MenuList,
   MenuItem,
   useToast,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
 } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
 import { deleteEmployee, getEmployees } from "../api/employees";
@@ -35,15 +39,13 @@ interface SimpleTableProps {
 }
 
 const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
-
   const toast = useToast();
   const dispatch = useDispatch();
 
   // config update Modal
 
-    const [isUpdateModalOpen, setOpenUpdateModal] = useState(false);
-   const [idForUpdate, setIdForUpdate] = useState("");
-
+  const [isUpdateModalOpen, setOpenUpdateModal] = useState(false);
+  const [idForUpdate, setIdForUpdate] = useState("");
 
   // config Alert Modal
   const [isOpen, setIsOpen] = useState(false);
@@ -52,11 +54,11 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
   // update function
 
   function updateEmployee(id: string) {
-    setOpenUpdateModal(true)
-    setIdForUpdate(id)
+    setOpenUpdateModal(true);
+    setIdForUpdate(id);
   }
 
-  // delete function 
+  // delete function
 
   const deleteEmployeeData = async (id: string) => {
     try {
@@ -81,20 +83,19 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
     dispatch(setEmployees(data));
   };
 
-
   return (
     <Box>
-      <Table variant="simple">
-        <Thead bg="#041e49">
-          <Tr>
-            <Th color="#dde3eb">Name</Th>
-            <Th color="#dde3eb">Cargo</Th>
-            <Th color="#dde3eb">Departamento</Th>
-            <Th color="#dde3eb">Data de Admissão</Th>
-            <Th color="#dde3eb"> Ações</Th>
-          </Tr>
-        </Thead>
-        {data.length > 0 ? (
+      {data.length > 0 ? (
+        <Table variant="simple">
+          <Thead bg="#041e49">
+            <Tr>
+              <Th color="#dde3eb">Name</Th>
+              <Th color="#dde3eb">Cargo</Th>
+              <Th color="#dde3eb">Departamento</Th>
+              <Th color="#dde3eb">Data de Admissão</Th>
+              <Th color="#dde3eb"> Ações</Th>
+            </Tr>
+          </Thead>
           <Tbody>
             {data.map((row) => (
               <Tr key={row._id}>
@@ -123,10 +124,27 @@ const EmployeeTable: React.FC<SimpleTableProps> = ({ data }) => {
               </Tr>
             ))}
           </Tbody>
-        ) : (
-          <Text>No data available</Text>
-        )}
-      </Table>
+        </Table>
+      ) : (
+        <Alert
+          status="info"
+          variant="subtle"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          textAlign="center"
+          height="200px"
+        >
+          <AlertIcon boxSize="40px" mr={0} />
+          <AlertTitle mt={4} mb={1} fontSize="lg">
+            Não há informações
+          </AlertTitle>
+          <AlertDescription maxWidth="sm">
+            Ainda não existe nenum funcionário cadastrado. Crique no botão
+            `Adicionar Funcionário` e inicie um novo cadastro.
+          </AlertDescription>
+        </Alert>
+      )}
       {isOpen && (
         <ErrorAlertModal
           onCloseModal={() => setIsOpen(false)}

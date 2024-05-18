@@ -34,7 +34,6 @@ const FilterInput: React.FC = () => {
     const filter = searchText ? { [selectedFilter]: searchText } : {};
     const data = await getEmployees(filter);
     if (data) {
-      console.log(data);
       dispatch(setEmployees(data));
     }
   };

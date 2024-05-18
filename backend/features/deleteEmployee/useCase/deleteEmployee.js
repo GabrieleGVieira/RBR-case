@@ -9,7 +9,7 @@ async function deleteEmployee(id) {
       "Ocorreu o seguinte erro no caso de uso ao deletar um funcionário:",
       error
     );
-    throw errorEnum.unknowError;
+    throw new Error(errorEnum.unknowError);
   }
 }
 

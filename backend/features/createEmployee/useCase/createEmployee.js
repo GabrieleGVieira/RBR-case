@@ -9,7 +9,7 @@ async function createEmployees(employeeData) {
       !employeeData.jobTitle ||
       !employeeData.department
     ) {
-      throw new Error(errorEnum.emptyField);
+      throw errorEnum.emptyField;
     }
 
     // validação se tem caracters inválidos
@@ -26,13 +26,13 @@ async function createEmployees(employeeData) {
     );
 
     if (hasInvalidCharactersName) {
-      throw new Error(errorEnum.invalidName);
+      throw errorEnum.invalidName;
     }
     if (hasInvalidCharactersJobTitle) {
-      throw new Error(errorEnum.invalidJobTitle);
+      throw errorEnum.invalidJobTitle;
     }
     if (hasInvalidCharactersDepartment) {
-      throw new Error(errorEnum.nvalidDepartment);
+      throw errorEnum.invalidDepartment;
     }
 
     employeeRepository.create(employeeData);
@@ -43,7 +43,7 @@ async function createEmployees(employeeData) {
       "Ocorreu o seguinte erro no caso de uso ao criar um novo usuário:",
       error
     );
-    throw errorEnum.unknowError;
+    throw new Error(error)
   }
 }
 

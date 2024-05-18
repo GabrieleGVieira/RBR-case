@@ -15,7 +15,7 @@ async function getEmployees(filter) {
       "Ocorreu o seguinte erro no caso de uso ao trazer dados de funcionários:",
       error
     );
-    throw errorEnum.unknowError;
+    throw new Error(errorEnum.unknowError);
   }
 }
 

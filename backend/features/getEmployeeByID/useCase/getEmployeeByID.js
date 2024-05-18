@@ -16,7 +16,7 @@ async function getEmployeeByID(id) {
       "Ocorreu o seguinte erro no caso de uso ao trazer dados de um funcionário:",
       error
     );
-    throw errorEnum.unknowError;
+    throw new Error(errorEnum.unknowError);
   }
 }
 

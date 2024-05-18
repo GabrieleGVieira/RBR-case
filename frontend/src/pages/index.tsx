@@ -12,16 +12,11 @@ import {
 } from "@chakra-ui/react";
 import EmployeeTable from "../components/Table";
 import { useEffect, useState } from "react";
-import getEmployees from "../api/employees";
+import { getEmployees } from "../api/employees";
 import FilterInput from "@/components/FilterInput";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "../redux/store";
 import { setEmployees } from "@/redux/actions";
-
-const data = [
-  { id: 1, name: "John Doe", email: "john@example.com" },
-  { id: 2, name: "Jane Smith", email: "jane@example.com" },
-];
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
